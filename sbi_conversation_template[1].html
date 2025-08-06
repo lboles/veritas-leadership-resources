@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI-C Conversation Planning Template - Veritas Visionaries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #1a5f3f;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .sbi-section {
+            background: white;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .sbi-header {
+            background: #1a5f3f;
+            color: white;
+            padding: 15px 20px;
+            margin: -25px -25px 20px -25px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .sbi-header h3 {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sbi-letter {
+            background: white;
+            color: #1a5f3f;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .guidance {
+            background: #f0f8f4;
+            border: 1px solid #2d7d54;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #1a5f3f;
+        }
+
+        .input-area {
+            margin: 15px 0;
+        }
+
+        .input-area label {
+            display: block;
+            font-weight: 600;
+            color: #2d7d54;
+            margin-bottom: 8px;
+        }
+
+        .input-area textarea {
+            width: 100%;
+            min-height: 100px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.5;
+            resize: vertical;
+        }
+
+        .input-area textarea:focus {
+            outline: none;
+            border-color: #1a5f3f;
+        }
+
+        .input-area input[type="text"] {
+            width: 100%;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .input-area input[type="text"]:focus {
+            outline: none;
+            border-color: #1a5f3f;
+        }
+
+        .example-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .tips-section {
+            background: #e8f5e8;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .tips-section h3 {
+            color: #1a5f3f;
+            margin-bottom: 15px;
+        }
+
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-section li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tips-section li::before {
+            content: '✓';
+            color: #1a5f3f;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .preparation-section {
+            background: #f8f9fa;
+            border-left: 4px solid #1a5f3f;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .preparation-section h3 {
+            color: #1a5f3f;
+            margin-bottom: 15px;
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .preview-section {
+            display: none;
+            background: #f0f8f4;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .preview-section h3 {
+            color: #1a5f3f;
+            margin-bottom: 20px;
+        }
+
+        .conversation-preview {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .sbi-label {
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .sbi-section {
+                padding: 15px;
+            }
+            
+            .sbi-header {
+                margin: -15px -15px 15px -15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">V</div>
+            <div class="brand-text">Veritas Visionaries</div>
+            <h1>SBI-C Conversation Planning Template</h1>
+            <div class="subtitle">Structure Your Difficult Conversations for Success</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h3>About the SBI-C Model</h3>
+                <p>The SBI-C model helps you have difficult conversations that are professional, productive, and focused on positive outcomes. By structuring your conversation around Situation, Behavior, Impact, and Commitment, you can address issues while maintaining relationships.</p>
+                <p><strong>Use this template to plan your conversation before meeting with the individual.</strong></p>
+            </div>
+
+            <div class="preparation-section">
+                <h3>Conversation Preparation</h3>
+                <div class="input-area">
+                    <label>Person you'll be speaking with:</label>
+                    <input type="text" id="personName" placeholder="Enter name">
+                </div>
+                <div class="input-area">
+                    <label>Issue you need to address:</label>
+                    <textarea id="issueDescription" placeholder="Briefly describe the issue or concern you need to discuss..."></textarea>
+                </div>
+                <div class="input-area">
+                    <label>Your goal for this conversation:</label>
+                    <textarea id="conversationGoal" placeholder="What do you hope to achieve? (e.g., behavior change, clarification, mutual understanding...)"></textarea>
+                </div>
+            </div>
+
+            <!-- Situation Section -->
+            <div class="sbi-section">
+                <div class="sbi-header">
+                    <h3><span class="sbi-letter">S</span> Situation</h3>
+                </div>
+                <div class="guidance">
+                    <strong>Guidance:</strong> Describe the specific context when the issue occurred. Be factual and specific about time, place, and circumstances. Avoid generalizations like "always" or "never."
+                </div>
+                <div class="input-area">
+                    <label>When and where did this happen?</label>
+                    <textarea id="situationContext" placeholder="Example: 'During yesterday's department meeting...' or 'In last week's parent conference...'"></textarea>
+                </div>
+                <div class="example-box">
+                    <h4>Good Example:</h4>
+                    <p>"During yesterday's team meeting when we were discussing the new curriculum changes..."</p>
+                    <h4>Avoid:</h4>
+                    <p>"You always interrupt in meetings" (too general, uses "always")</p>
+                </div>
+            </div>
+
+            <!-- Behavior Section -->
+            <div class="sbi-section">
+                <div class="sbi-header">
+                    <h3><span class="sbi-letter">B</span> Behavior</h3>
+                </div>
+                <div class="guidance">
+                    <strong>Guidance:</strong> Describe what you observed—the specific actions or words. Focus on facts, not interpretations or assumptions about intent. Use neutral, non-judgmental language.
+                </div>
+                <div class="input-area">
+                    <label>What exactly did you observe?</label>
+                    <textarea id="behaviorObserved" placeholder="Describe the specific actions or words you witnessed. Stick to facts only."></textarea>
+                </div>
+                <div class="example-box">
+                    <h4>Good Example:</h4>
+                    <p>"I noticed you spoke over two colleagues and interrupted the presentation three times..."</p>
+                    <h4>Avoid:</h4>
+                    <p>"You were being disrespectful and rude" (interpretation, not observable behavior)</p>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div class="sbi-section">
+                <div class="sbi-header">
+                    <h3><span class="sbi-letter">I</span> Impact</h3>
+                </div>
+                <div class="guidance">
+                    <strong>Guidance:</strong> Explain the effect the behavior had—on you, the team, students, or the organization. Connect to goals, values, and outcomes that matter.
+                </div>
+                <div class="input-area">
+                    <label>What was the impact on you personally?</label>
+                    <textarea id="personalImpact" placeholder="How did this affect you? Your feelings, ability to do your job, etc."></textarea>
+                </div>
+                <div class="input-area">
+                    <label>What was the impact on others/the team?</label>
+                    <textarea id="teamImpact" placeholder="How did this affect colleagues, students, or the work environment?"></textarea>
+                </div>
+                <div class="input-area">
+                    <label>What was the impact on goals/outcomes?</label>
+                    <textarea id="goalImpact" placeholder="How did this affect productivity, relationships, or organizational objectives?"></textarea>
+                </div>
+                <div class="example-box">
+                    <h4>Good Example:</h4>
+                    <p>"Which prevented us from hearing all perspectives and delayed our decision-making by 20 minutes..."</p>
+                </div>
+            </div>
+
+            <!-- Commitment Section -->
+            <div class="sbi-section">
+                <div class="sbi-header">
+                    <h3><span class="sbi-letter">C</span> Commitment</h3>
+                </div>
+                <div class="guidance">
+                    <strong>Guidance:</strong> Invite collaboration on solutions and agree on next steps. Focus on future behavior and mutual commitments. Make it specific and measurable when possible.
+                </div>
+                <div class="input-area">
+                    <label>What solution do you want to propose?</label>
+                    <textarea id="proposedSolution" placeholder="What specific change or agreement would you like to see?"></textarea>
+                </div>
+                <div class="input-area">
+                    <label>How will you invite their input?</label>
+                    <textarea id="inviteInput" placeholder="What question will you ask to get their perspective and ideas?"></textarea>
+                </div>
+                <div class="input-area">
+                    <label>How will you follow up?</label>
+                    <textarea id="followUp" placeholder="When and how will you check on progress?"></textarea>
+                </div>
+                <div class="example-box">
+                    <h4>Good Example:</h4>
+                    <p>"Can we agree on a way to ensure everyone gets to share their thoughts in future meetings? What ideas do you have?"</p>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>Conversation Success Tips</h3>
+                <ul>
+                    <li>Choose a private, comfortable setting</li>
+                    <li>Start with a positive intention statement</li>
+                    <li>Stay calm and professional throughout</li>
+                    <li>Listen actively to their perspective</li>
+                    <li>Be prepared to adjust your approach based on their response</li>
+                    <li>End with clear next steps and timeline</li>
+                    <li>Document the conversation and agreements afterward</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn" onclick="generatePreview()">Preview My Conversation</button>
+                <button class="btn btn-secondary" onclick="clearForm()">Start Over</button>
+                <button class="btn" onclick="printTemplate()">Print Template</button>
+            </div>
+
+            <div class="preview-section" id="previewSection">
+                <h3>Your Conversation Preview</h3>
+                <div class="conversation-preview" id="conversationPreview">
+                    <!-- Generated conversation will appear here -->
+                </div>
+                <p style="margin-top: 15px; font-style: italic; color: #666;">
+                    <strong>Remember:</strong> This is a guide, not a script. Be prepared to adapt based on their responses and body language.
+                </p>
+            </div>
+
+            <div class="preparation-section">
+                <h3>Additional Conversation Planning</h3>
+                <div class="input-area">
+                    <label>Potential objections or pushback:</label>
+                    <textarea placeholder="What might they say in response? How will you handle it?"></textarea>
+                </div>
+                <div class="input-area">
+                    <label>Your backup plan:</label>
+                    <textarea placeholder="If this conversation doesn't go well, what are your next steps?"></textarea>
+                </div>
+                <div class="input-area">
+                    <label>Success indicators:</label>
+                    <textarea placeholder="How will you know if this conversation was successful?"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generatePreview() {
+            // Get all the input values
+            const personName = document.getElementById('personName').value || '[Name]';
+            const situation = document.getElementById('situationContext').value || '[Situation not specified]';
+            const behavior = document.getElementById('behaviorObserved').value || '[Behavior not specified]';
+            const personalImpact = document.getElementById('personalImpact').value;
+            const teamImpact = document.getElementById('teamImpact').value;
+            const goalImpact = document.getElementById('goalImpact').value;
+            const proposedSolution = document.getElementById('proposedSolution').value || '[Solution not specified]';
+            const inviteInput = document.getElementById('inviteInput').value || 'What are your thoughts on this?';
+
+            // Combine impacts
+            let impacts = [];
+            if (personalImpact) impacts.push(personalImpact);
+            if (teamImpact) impacts.push(teamImpact);
+            if (goalImpact) impacts.push(goalImpact);
+            const combinedImpact = impacts.length > 0 ? impacts.join(' Additionally, ') : '[Impact not specified]';
+
+            // Generate the conversation preview
+            const preview = `
+                <p><strong>Opening:</strong> "Hi ${personName}, I'd like to talk with you about something that happened recently. My goal is to make sure we're working together effectively and supporting our team's success."</p>
+                
+                <p><span class="sbi-label">Situation:</span> "${situation}"</p>
+                
+                <p><span class="sbi-label">Behavior:</span> "I observed that ${behavior}"</p>
+                
+                <p><span class="sbi-label">Impact:</span> "${combinedImpact}"</p>
+                
+                <p><span class="sbi-label">Commitment:</span> "${proposedSolution} ${inviteInput}"</p>
+                
+                <p><strong>Closing:</strong> "I appreciate you taking the time to discuss this with me. Let's check in again [timeframe] to see how things are going."</p>
+            `;
+
+            document.getElementById('conversationPreview').innerHTML = preview;
+            document.getElementById('previewSection').style.display = 'block';
+            document.getElementById('previewSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all fields and start over?')) {
+                document.querySelectorAll('input, textarea').forEach(field => {
+                    field.value = '';
+                });
+                document.getElementById('previewSection').style.display = 'none';
+            }
+        }
+
+        function printTemplate() {
+            window.print();
+        }
+
+        // Auto-save functionality
+        function autoSave() {
+            const formData = {};
+            document.querySelectorAll('input, textarea').forEach(field => {
+                if (field.id) {
+                    formData[field.id] = field.value;
+                }
+            });
+            
+            try {
+                localStorage.setItem('sbiTemplateData', JSON.stringify(formData));
+            } catch(e) {
+                console.log('Auto-save not available');
+            }
+        }
+
+        function loadSavedData() {
+            try {
+                const savedData = localStorage.getItem('sbiTemplateData');
+                if (savedData) {
+                    const formData = JSON.parse(savedData);
+                    Object.entries(formData).forEach(([id, value]) => {
+                        const field = document.getElementById(id);
+                        if (field) {
+                            field.value = value;
+                        }
+                    });
+                }
+            } catch(e) {
+                console.log('Load saved data not available');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedData();
+            
+            // Set up auto-save on input changes
+            document.querySelectorAll('input, textarea').forEach(field => {
+                field.addEventListener('input', autoSave);
+            });
+        });
+    </script>
+</body>
+</html>

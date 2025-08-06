@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Action Plan - Veritas Visionaries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #1a5f3f;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .section h3 {
+            color: #1a5f3f;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin: 20px 0;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #2d7d54;
+            margin-bottom: 8px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="date"],
+        .input-group select {
+            width: 100%;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .input-group textarea {
+            width: 100%;
+            min-height: 100px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.5;
+            resize: vertical;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #1a5f3f;
+        }
+
+        .timeline-section {
+            background: white;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .timeline-header {
+            background: #1a5f3f;
+            color: white;
+            padding: 15px 20px;
+            margin: -25px -25px 20px -25px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .timeline-item {
+            background: #f0f8f4;
+            border: 1px solid #2d7d54;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .timeline-item h4 {
+            color: #1a5f3f;
+            margin-bottom: 10px;
+        }
+
+        .goal-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .goal-item:hover {
+            border-color: #1a5f3f;
+        }
+
+        .priority-high {
+            border-left: 4px solid #dc3545;
+        }
+
+        .priority-medium {
+            border-left: 4px solid #ffc107;
+        }
+
+        .priority-low {
+            border-left: 4px solid #28a745;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: white;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .metric-card h4 {
+            color: #1a5f3f;
+            margin-bottom: 10px;
+        }
+
+        .progress-section {
+            background: #e8f5e8;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .progress-section h3 {
+            color: #1a5f3f;
+            margin-bottom: 15px;
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .resource-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .resource-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">V</div>
+            <div class="brand-text">Veritas Visionaries</div>
+            <h1>Leadership Action Plan</h1>
+            <div class="subtitle">Your Personalized Development Roadmap</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h3>Creating Your Leadership Development Plan</h3>
+                <p>This action plan will help you apply the Leadership Foundations training to your specific role and challenges. Complete each section thoughtfully, focusing on concrete, measurable goals that will advance your leadership effectiveness.</p>
+                <p><strong>Remember:</strong> Effective leadership development happens through consistent practice and reflection, not perfection.</p>
+            </div>
+
+            <!-- Personal Information -->
+            <div class="section">
+                <h3>Leadership Profile</h3>
+                <div class="input-group">
+                    <label>Your Name:</label>
+                    <input type="text" id="leaderName" placeholder="Enter your full name">
+                </div>
+                <div class="input-group">
+                    <label>Current Role/Position:</label>
+                    <input type="text" id="currentRole" placeholder="e.g., Assistant Principal, Department Head, Teacher Leader">
+                </div>
+                <div class="input-group">
+                    <label>Organization/School:</label>
+                    <input type="text" id="organization" placeholder="Enter your school or organization name">
+                </div>
+                <div class="input-group">
+                    <label>Date Plan Created:</label>
+                    <input type="date" id="planDate">
+                </div>
+                <div class="input-group">
+                    <label>Your Leadership Experience:</label>
+                    <select id="experience">
+                        <option value="">Select experience level</option>
+                        <option value="new">New to leadership (0-2 years)</option>
+                        <option value="developing">Developing leader (2-5 years)</option>
+                        <option value="experienced">Experienced leader (5-10 years)</option>
+                        <option value="veteran">Veteran leader (10+ years)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Self-Assessment Results -->
+            <div class="section">
+                <h3>Self-Assessment Summary</h3>
+                <div class="input-group">
+                    <label>Your Primary Conflict Style:</label>
+                    <select id="conflictStyle">
+                        <option value="">Select your primary style</option>
+                        <option value="competing">Competing</option>
+                        <option value="accommodating">Accommodating</option>
+                        <option value="avoiding">Avoiding</option>
+                        <option value="compromising">Compromising</option>
+                        <option value="collaborating">Collaborating</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Professional Presence Strengths:</label>
+                    <textarea id="presenceStrengths" placeholder="List your top 2-3 areas of strength from the professional presence audit..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Areas for Growth:</label>
+                    <textarea id="growthAreas" placeholder="Identify 2-3 specific areas where you want to improve..."></textarea>
+                </div>
+            </div>
+
+            <!-- Current Challenges -->
+            <div class="section">
+                <h3>Current Leadership Challenges</h3>
+                <div class="input-group">
+                    <label>Specific conflicts or tensions you're currently facing:</label>
+                    <textarea id="currentConflicts" placeholder="Describe 1-2 specific situations that need attention..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Communication challenges in your role:</label>
+                    <textarea id="commChallenges" placeholder="What difficult conversations do you need to have? What communication patterns need to change?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Organizational stress factors:</label>
+                    <textarea id="stressFactors" placeholder="What environmental or cultural issues are affecting your team?"></textarea>
+                </div>
+            </div>
+
+            <!-- Goals and Strategies -->
+            <div class="timeline-section">
+                <div class="timeline-header">
+                    <h3>30-60-90 Day Implementation Plan</h3>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>First 30 Days: Foundation Building</h4>
+                    <div class="input-group">
+                        <label>Self-awareness and presence goals:</label>
+                        <textarea placeholder="What specific behaviors will you focus on improving? How will you practice?"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Immediate conflicts to address:</label>
+                        <textarea placeholder="Which 1-2 situations will you tackle first using your new skills?"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Success measures for Month 1:</label>
+                        <textarea placeholder="How will you know you're making progress?"></textarea>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>60 Days: Skill Application</h4>
+                    <div class="input-group">
+                        <label>SBI-C conversation practice:</label>
+                        <textarea placeholder="What structured conversations will you have? With whom?"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Conflict resolution applications:</label>
+                        <textarea placeholder="What frameworks will you apply to current challenges?"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Feedback and adjustment plan:</label>
+                        <textarea placeholder="Who will give you feedback? How will you adjust your approach?"></textarea>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>90 Days: Culture Building and Integration</h4>
+                    <div class="input-group">
+                        <label>Culture-building initiatives:</label>
+                        <textarea placeholder="What systemic changes will you implement to prevent future conflicts?"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Leadership modeling goals:</label>
+                        <textarea placeholder="How will you consistently demonstrate these skills?"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Team development plans:</label>
+                        <textarea placeholder="How will you develop these skills in others?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Metrics -->
+            <div class="section">
+                <h3>Success Metrics</h3>
+                <p>Define how you'll measure your leadership growth:</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4>Conflict Resolution</h4>
+                        <div class="input-group">
+                            <label>Baseline:</label>
+                            <input type="text" placeholder="Current state">
+                        </div>
+                        <div class="input-group">
+                            <label>90-day target:</label>
+                            <input type="text" placeholder="Desired outcome">
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h4>Professional Presence</h4>
+                        <div class="input-group">
+                            <label>Baseline:</label>
+                            <input type="text" placeholder="Current state">
+                        </div>
+                        <div class="input-group">
+                            <label>90-day target:</label>
+                            <input type="text" placeholder="Desired outcome">
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h4>Team Relationships</h4>
+                        <div class="input-group">
+                            <label>Baseline:</label>
+                            <input type="text" placeholder="Current state">
+                        </div>
+                        <div class="input-group">
+                            <label>90-day target:</label>
+                            <input type="text" placeholder="Desired outcome">
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h4>Communication Effectiveness</h4>
+                        <div class="input-group">
+                            <label>Baseline:</label>
+                            <input type="text" placeholder="Current state">
+                        </div>
+                        <div class="input-group">
+                            <label>90-day target:</label>
+                            <input type="text" placeholder="Desired outcome">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support System -->
+            <div class="section">
+                <h3>Support System</h3>
+                <div class="input-group">
+                    <label>Accountability Partner:</label>
+                    <input type="text" placeholder="Who will help you stay on track?">
+                </div>
+                <div class="input-group">
+                    <label>Mentor or Coach:</label>
+                    <input type="text" placeholder="Who can provide guidance and feedback?">
+                </div>
+                <div class="input-group">
+                    <label>Learning Resources:</label>
+                    <textarea placeholder="What books, courses, or other resources will support your development?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Practice Opportunities:</label>
+                    <textarea placeholder="Where will you practice these skills in low-stakes situations?"></textarea>
+                </div>
+            </div>
+
+            <!-- Progress Tracking -->
+            <div class="progress-section">
+                <h3>Progress Tracking & Reflection</h3>
+                <div class="input-group">
+                    <label>Weekly Check-in Schedule:</label>
+                    <input type="text" placeholder="When will you review your progress each week?">
+                </div>
+                <div class="input-group">
+                    <label>Monthly Review Process:</label>
+                    <textarea placeholder="How will you conduct more thorough monthly reviews?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Adjustment Protocol:</label>
+                    <textarea placeholder="How will you modify your plan if something isn't working?"></textarea>
+                </div>
+            </div>
+
+            <div class="resource-box">
+                <h4>Remember Your Resources:</h4>
+                <ul>
+                    <li>Conflict Style Assessment Quiz</li>
+                    <li>Professional Presence Self-Audit</li>
+                    <li>SBI-C Conversation Planning Template</li>
+                    <li>De-Escalation Phrase Bank</li>
+                    <li>3-Step Intervention Plan Worksheet</li>
+                    <li>Live coaching sessions with Veritas Visionaries</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn" onclick="saveProgress()">Save Progress</button>
+                <button class="btn btn-secondary" onclick="printPlan()">Print Plan</button>
+                <button class="btn" onclick="generateSummary()">Generate Summary</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save functionality
+        function autoSave() {
+            const formData = {};
+            document.querySelectorAll('input, textarea, select').forEach(field => {
+                if (field.id) {
+                    formData[field.id] = field.value;
+                }
+            });
+            
+            try {
+                localStorage.setItem('leadershipActionPlan', JSON.stringify(formData));
+            } catch(e) {
+                console.log('Auto-save not available');
+            }
+        }
+
+        function loadSavedData() {
+            try {
+                const savedData = localStorage.getItem('leadershipActionPlan');
+                if (savedData) {
+                    const formData = JSON.parse(savedData);
+                    Object.entries(formData).forEach(([id, value]) => {
+                        const field = document.getElementById(id);
+                        if (field) {
+                            field.value = value;
+                        }
+                    });
+                }
+            } catch(e) {
+                console.log('Load saved data not available');
+            }
+        }
+
+        function saveProgress() {
+            autoSave();
+            alert('Your action plan has been saved! You can return to it anytime in this browser.');
+        }
+
+        function printPlan() {
+            window.print();
+        }
+
+        function generateSummary() {
+            const name = document.getElementById('leaderName').value || 'Leader';
+            const role = document.getElementById('currentRole').value || 'Leadership Role';
+            const conflicts = document.getElementById('currentConflicts').value;
+            const strengths = document.getElementById('presenceStrengths').value;
+            const growth = document.getElementById('growthAreas').value;
+
+            let summary = `LEADERSHIP ACTION PLAN SUMMARY\n`;
+            summary += `=====================================\n\n`;
+            summary += `Leader: ${name}\n`;
+            summary += `Role: ${role}\n`;
+            summary += `Date: ${new Date().toLocaleDateString()}\n\n`;
+            
+            if (strengths) {
+                summary += `STRENGTHS:\n${strengths}\n\n`;
+            }
+            
+            if (growth) {
+                summary += `GROWTH AREAS:\n${growth}\n\n`;
+            }
+            
+            if (conflicts) {
+                summary += `CURRENT CHALLENGES:\n${conflicts}\n\n`;
+            }
+
+            summary += `NEXT STEPS:\n`;
+            summary += `- Complete 30-day foundation building activities\n`;
+            summary += `- Schedule regular check-ins with accountability partner\n`;
+            summary += `- Begin applying SBI-C model to conversations\n`;
+            summary += `- Track progress using defined metrics\n\n`;
+            summary += `Generated by Veritas Visionaries Leadership Development Program`;
+
+            // Create a downloadable text file
+            const blob = new Blob([summary], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${name.replace(/\s+/g, '_')}_Leadership_Action_Plan_Summary.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set today's date
+            document.getElementById('planDate').value = new Date().toISOString().split('T')[0];
+            
+            // Load saved data
+            loadSavedData();
+            
+            // Set up auto-save on input changes
+            document.querySelectorAll('input, textarea, select').forEach(field => {
+                field.addEventListener('input', autoSave);
+                field.addEventListener('change', autoSave);
+            });
+        });
+    </script>
+</body>
+</html>
