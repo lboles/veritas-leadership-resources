@@ -373,6 +373,63 @@
             color: #856404;
         }
 
+        /* Certificate of completion styles */
+        .certificate {
+            border: 2px solid #1a5f3f;
+            padding: 40px;
+            margin-top: 20px;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none; /* Hidden until course completion */
+        }
+
+        .certificate h2 {
+            color: #1a5f3f;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .certificate p {
+            font-size: 1.1rem;
+            margin: 8px 0;
+            color: #495057;
+        }
+
+        .print-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #1a5f3f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: none; /* Hidden until course completion */
+        }
+
+        .print-btn:hover {
+            background: #2d7d54;
+        }
+
+        /* Print styles: show only certificate when printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #certificate,
+            #certificate * {
+                visibility: visible;
+            }
+            #certificate {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .content {
                 padding: 20px 15px;
@@ -1236,7 +1293,15 @@
       </div>
      </div>
     </div>
-   </div>
+    <!-- Certificate of Completion -->
+    <div class="certificate" id="certificate">
+        <h2>Certificate of Completion</h2>
+        <p>This certifies that Dr. Phillips has successfully completed the Leadership Foundations training on conflict resolution &amp; management.</p>
+        <p>Date: <span id="completionDate"></span></p>
+    </div>
+    <button class="print-btn" id="printCertificateBtn" onclick="printCertificate()">Print Certificate</button>
+
+    </div>
    <!-- Navigation -->
    <div class="navigation">
     <button class="nav-btn" id="prevBtn" onclick="previousLesson()">
@@ -1342,6 +1407,29 @@
             } catch(e) {
                 console.log('Completion status saving not available');
             }
+
+            // Display the certificate and print button
+            const cert = document.getElementById('certificate');
+            const printBtn = document.getElementById('printCertificateBtn');
+            const dateSpan = document.getElementById('completionDate');
+            if (cert && printBtn) {
+                // Set current date in human-readable format
+                const date = new Date().toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                if (dateSpan) {
+                    dateSpan.textContent = date;
+                }
+                cert.style.display = 'block';
+                printBtn.style.display = 'inline-block';
+            }
+        }
+
+        // Print the certificate using the browser's print functionality
+        function printCertificate() {
+            window.print();
         }
 
         // Quiz functionality
