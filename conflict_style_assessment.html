@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conflict Style Assessment - Veritas Visionaries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #1a5f3f;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .question {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .question:hover {
+            border-color: #1a5f3f;
+        }
+
+        .question h3 {
+            color: #1a5f3f;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 10px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .options li:hover {
+            background: #e9ecef;
+        }
+
+        .options li.selected {
+            background: #1a5f3f;
+            color: white;
+            border-color: #2d7d54;
+        }
+
+        .options li input {
+            margin-right: 10px;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .results {
+            display: none;
+            background: #f0f8f4;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .results h2 {
+            color: #1a5f3f;
+            margin-bottom: 20px;
+        }
+
+        .style-result {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .style-name {
+            color: #1a5f3f;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .next-steps {
+            background: #e8f5e8;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .next-steps h4 {
+            color: #1a5f3f;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">V</div>
+            <div class="brand-text">Veritas Visionaries</div>
+            <h1>Conflict Style Assessment</h1>
+            <div class="subtitle">Discover Your Natural Approach to Conflict</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h3>Understanding Your Conflict Style</h3>
+                <p>This assessment will help you identify your natural approach to handling conflict. There are no right or wrong answers—respond based on how you typically behave in conflict situations. Your results will help you understand your strengths and areas for growth in conflict management.</p>
+            </div>
+
+            <form id="assessmentForm">
+                <!-- Question 1 -->
+                <div class="question">
+                    <h3>1. When conflict arises in a team meeting, I typically:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q1" value="competing"> Take charge and push for my solution</li>
+                        <li data-style="accommodating"><input type="radio" name="q1" value="accommodating"> Go along with others to keep peace</li>
+                        <li data-style="avoiding"><input type="radio" name="q1" value="avoiding"> Stay quiet and hope it resolves itself</li>
+                        <li data-style="compromising"><input type="radio" name="q1" value="compromising"> Look for a middle ground solution</li>
+                        <li data-style="collaborating"><input type="radio" name="q1" value="collaborating"> Work to find a solution that satisfies everyone</li>
+                    </ul>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question">
+                    <h3>2. When someone disagrees with my ideas, my first instinct is to:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q2" value="competing"> Defend my position strongly</li>
+                        <li data-style="accommodating"><input type="radio" name="q2" value="accommodating"> Consider their perspective and adjust mine</li>
+                        <li data-style="avoiding"><input type="radio" name="q2" value="avoiding"> Change the subject or postpone the discussion</li>
+                        <li data-style="compromising"><input type="radio" name="q2" value="compromising"> Find elements we both can agree on</li>
+                        <li data-style="collaborating"><input type="radio" name="q2" value="collaborating"> Explore why we see things differently</li>
+                    </ul>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question">
+                    <h3>3. In a heated discussion, I am most likely to:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q3" value="competing"> Stand firm on important issues</li>
+                        <li data-style="accommodating"><input type="radio" name="q3" value="accommodating"> Back down to reduce tension</li>
+                        <li data-style="avoiding"><input type="radio" name="q3" value="avoiding"> Suggest we discuss it later when emotions cool</li>
+                        <li data-style="compromising"><input type="radio" name="q3" value="compromising"> Propose we each give a little</li>
+                        <li data-style="collaborating"><input type="radio" name="q3" value="collaborating"> Focus on understanding the underlying issues</li>
+                    </ul>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question">
+                    <h3>4. When facing a deadline conflict between departments, I:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q4" value="competing"> Assert my department's needs as priority</li>
+                        <li data-style="accommodating"><input type="radio" name="q4" value="accommodating"> Adjust our timeline to help the other department</li>
+                        <li data-style="avoiding"><input type="radio" name="q4" value="avoiding"> Wait for management to make the decision</li>
+                        <li data-style="compromising"><input type="radio" name="q4" value="compromising"> Negotiate a timeline that works for both</li>
+                        <li data-style="collaborating"><input type="radio" name="q4" value="collaborating"> Brainstorm creative solutions with all parties</li>
+                    </ul>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question">
+                    <h3>5. If a colleague criticizes my work publicly, I would:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q5" value="competing"> Address it directly and defend my work</li>
+                        <li data-style="accommodating"><input type="radio" name="q5" value="accommodating"> Thank them for the feedback and make changes</li>
+                        <li data-style="avoiding"><input type="radio" name="q5" value="avoiding"> Say nothing and deal with hurt feelings privately</li>
+                        <li data-style="compromising"><input type="radio" name="q5" value="compromising"> Acknowledge some points while clarifying others</li>
+                        <li data-style="collaborating"><input type="radio" name="q5" value="collaborating"> Ask for specific examples and work together on improvements</li>
+                    </ul>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question">
+                    <h3>6. When budget cuts require difficult decisions, I prefer to:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q6" value="competing"> Fight hard for what's most important</li>
+                        <li data-style="accommodating"><input type="radio" name="q6" value="accommodating"> Accept cuts to avoid conflict with administration</li>
+                        <li data-style="avoiding"><input type="radio" name="q6" value="avoiding"> Let others make the difficult choices</li>
+                        <li data-style="compromising"><input type="radio" name="q6" value="compromising"> Spread cuts evenly across all areas</li>
+                        <li data-style="collaborating"><input type="radio" name="q6" value="collaborating"> Involve stakeholders in finding innovative solutions</li>
+                    </ul>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question">
+                    <h3>7. In parent-teacher conferences when parents are upset, I:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q7" value="competing"> Stand by my professional judgment</li>
+                        <li data-style="accommodating"><input type="radio" name="q7" value="accommodating"> Focus on what I can do to help them feel better</li>
+                        <li data-style="avoiding"><input type="radio" name="q7" value="avoiding"> Keep the meeting short and formal</li>
+                        <li data-style="compromising"><input type="radio" name="q7" value="compromising"> Find some middle ground we can both accept</li>
+                        <li data-style="collaborating"><input type="radio" name="q7" value="collaborating"> Work together to develop the best plan for their child</li>
+                    </ul>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question">
+                    <h3>8. When there's disagreement about teaching methods in my team, I:</h3>
+                    <ul class="options">
+                        <li data-style="competing"><input type="radio" name="q8" value="competing"> Advocate strongly for evidence-based approaches</li>
+                        <li data-style="accommodating"><input type="radio" name="q8" value="accommodating"> Support whatever the team majority prefers</li>
+                        <li data-style="avoiding"><input type="radio" name="q8" value="avoiding"> Continue with my own methods quietly</li>
+                        <li data-style="compromising"><input type="radio" name="q8" value="compromising"> Suggest we try different approaches in different situations</li>
+                        <li data-style="collaborating"><input type="radio" name="q8" value="collaborating"> Research and pilot test different methods together</li>
+                    </ul>
+                </div>
+
+                <div class="submit-section">
+                    <button type="button" class="submit-btn" onclick="calculateResults()">Get My Results</button>
+                </div>
+            </form>
+
+            <div class="results" id="results">
+                <h2>Your Conflict Style Results</h2>
+                <div id="resultContent"></div>
+                
+                <div class="next-steps">
+                    <h4>Next Steps</h4>
+                    <p>Now that you understand your conflict style, reflect on how this shows up in your leadership. Consider downloading the Self-Reflection Worksheet to explore how you can leverage your strengths and address your growth areas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Style definitions
+        const conflictStyles = {
+            competing: {
+                name: "Competing Style",
+                description: "You tend to be assertive and direct when addressing conflicts. You're willing to stand firm on important issues and advocate for your position.",
+                strengths: "Strong advocacy, decisive action, confidence in difficult situations, protection of important principles",
+                challenges: "May be seen as aggressive, could damage relationships, might miss collaborative opportunities",
+                tips: "Balance assertiveness with listening. Use this style for urgent decisions or when standing up for important values, but consider collaborating on complex issues."
+            },
+            accommodating: {
+                name: "Accommodating Style", 
+                description: "You prioritize maintaining relationships and harmony, often putting others' needs before your own in conflict situations.",
+                strengths: "Builds goodwill, maintains harmony, shows flexibility, demonstrates care for others",
+                challenges: "May suppress important concerns, could be taken advantage of, might build resentment over time",
+                tips: "Recognize when your needs matter too. Use accommodation when the relationship is more important than the issue, but speak up on matters that significantly affect you or your students."
+            },
+            avoiding: {
+                name: "Avoiding Style",
+                description: "You prefer to step back from conflict situations, either postponing or withdrawing from disagreements.",
+                strengths: "Prevents escalation, allows time for emotions to cool, good when issues are trivial",
+                challenges: "Problems may worsen without attention, others may see you as unengaged, important issues remain unresolved",
+                tips: "Recognize when conflicts need addressing. Use avoidance for minor issues or when you need time to prepare, but develop skills to engage constructively on important matters."
+            },
+            compromising: {
+                name: "Compromising Style",
+                description: "You seek middle-ground solutions where everyone gives up something to reach an agreement.",
+                strengths: "Quick resolution, appears fair, maintains working relationships, practical approach",
+                challenges: "May not address root causes, solutions might not be optimal, can become the default without exploring better options",
+                tips: "Great for time-sensitive decisions with equal parties. Consider if collaboration might yield better solutions for complex issues."
+            },
+            collaborating: {
+                name: "Collaborating Style",
+                description: "You work to find solutions that fully satisfy everyone's important concerns, viewing conflict as a problem to solve together.",
+                strengths: "Creates optimal solutions, builds relationships, addresses root causes, gains buy-in from all parties",
+                challenges: "Time-intensive, requires willing participants, may be frustrating when quick decisions are needed",
+                tips: "Your strength in complex, important issues. Use when relationships and outcomes both matter. Be willing to switch to other styles when time is limited."
+            }
+        };
+
+        // Add click functionality to options
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.options li').forEach(option => {
+                option.addEventListener('click', function() {
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) {
+                        // Clear other selections in this question
+                        const questionDiv = this.closest('.question');
+                        questionDiv.querySelectorAll('.options li').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        
+                        // Select this option
+                        radio.checked = true;
+                        this.classList.add('selected');
+                    }
+                });
+            });
+        });
+
+        function calculateResults() {
+            const form = document.getElementById('assessmentForm');
+            const formData = new FormData(form);
+            
+            // Count responses for each style
+            const styleCounts = {
+                competing: 0,
+                accommodating: 0,
+                avoiding: 0,
+                compromising: 0,
+                collaborating: 0
+            };
+
+            // Check if all questions are answered
+            let answeredQuestions = 0;
+            for (let i = 1; i <= 8; i++) {
+                const answer = formData.get(`q${i}`);
+                if (answer) {
+                    styleCounts[answer]++;
+                    answeredQuestions++;
+                }
+            }
+
+            if (answeredQuestions < 8) {
+                alert('Please answer all questions before getting your results.');
+                return;
+            }
+
+            // Find primary and secondary styles
+            const sortedStyles = Object.entries(styleCounts)
+                .sort(([,a], [,b]) => b - a);
+
+            const primaryStyle = sortedStyles[0][0];
+            const secondaryStyle = sortedStyles[1][0];
+
+            displayResults(primaryStyle, secondaryStyle, styleCounts);
+        }
+
+        function displayResults(primary, secondary, counts) {
+            const resultsDiv = document.getElementById('results');
+            const contentDiv = document.getElementById('resultContent');
+
+            let resultHTML = `
+                <div class="style-result">
+                    <div class="style-name">Primary Style: ${conflictStyles[primary].name}</div>
+                    <p><strong>Description:</strong> ${conflictStyles[primary].description}</p>
+                    <p><strong>Your Strengths:</strong> ${conflictStyles[primary].strengths}</p>
+                    <p><strong>Watch Out For:</strong> ${conflictStyles[primary].challenges}</p>
+                    <p><strong>Leadership Tips:</strong> ${conflictStyles[primary].tips}</p>
+                </div>
+            `;
+
+            if (counts[secondary] > 0) {
+                resultHTML += `
+                    <div class="style-result">
+                        <div class="style-name">Secondary Style: ${conflictStyles[secondary].name}</div>
+                        <p><strong>Description:</strong> ${conflictStyles[secondary].description}</p>
+                        <p><strong>When to Use:</strong> ${conflictStyles[secondary].tips}</p>
+                    </div>
+                `;
+            }
+
+            contentDiv.innerHTML = resultHTML;
+            resultsDiv.style.display = 'block';
+            
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Presence Self-Audit - Veritas Visionaries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #1a5f3f;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .section h3 {
+            color: #1a5f3f;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .audit-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .audit-item:hover {
+            border-color: #1a5f3f;
+        }
+
+        .audit-question {
+            font-weight: 600;
+            color: #2d7d54;
+            margin-bottom: 10px;
+        }
+
+        .rating-scale {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .rating-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .rating-option:hover {
+            background: #e9ecef;
+        }
+
+        .rating-option.selected {
+            background: #1a5f3f;
+            color: white;
+            border-color: #2d7d54;
+        }
+
+        .notes-area {
+            margin-top: 10px;
+        }
+
+        .notes-area textarea {
+            width: 100%;
+            min-height: 60px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .notes-area textarea:focus {
+            outline: none;
+            border-color: #1a5f3f;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 30px auto;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .results {
+            display: none;
+            background: #f0f8f4;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .results h3 {
+            color: #1a5f3f;
+            margin-bottom: 20px;
+        }
+
+        .score-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1a5f3f, #2d7d54);
+            transition: width 0.5s ease;
+        }
+
+        .action-plan {
+            background: #e8f5e8;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .action-plan h4 {
+            color: #1a5f3f;
+            margin-bottom: 15px;
+        }
+
+        .strength {
+            color: #2d7d54;
+            font-weight: 600;
+        }
+
+        .improvement {
+            color: #d73027;
+            font-weight: 600;
+        }
+
+        .scale-legend {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .scale-legend h4 {
+            color: #1a5f3f;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .rating-scale {
+                gap: 5px;
+            }
+            
+            .rating-option {
+                min-width: 45px;
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">V</div>
+            <div class="brand-text">Veritas Visionaries</div>
+            <h1>Professional Presence Self-Audit</h1>
+            <div class="subtitle">Assess Your Leadership Presence and Etiquette</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h3>About This Assessment</h3>
+                <p>Professional presence is how you show up as a leader—your credibility, composure, and consistency in all interactions. This self-audit will help you identify your strengths and areas for growth across the three key elements of executive presence: Clarity, Consistency, and Composure.</p>
+                <p><strong>Instructions:</strong> Rate yourself honestly on each item using the 1-5 scale. Add notes about specific examples or areas you'd like to improve.</p>
+            </div>
+
+            <div class="scale-legend">
+                <h4>Rating Scale:</h4>
+                <p><strong>1 = Never:</strong> This doesn't describe me<br>
+                <strong>2 = Rarely:</strong> This occasionally describes me<br>
+                <strong>3 = Sometimes:</strong> This describes me about half the time<br>
+                <strong>4 = Often:</strong> This describes me most of the time<br>
+                <strong>5 = Always:</strong> This consistently describes me</p>
+            </div>
+
+            <!-- Clarity Section -->
+            <div class="section">
+                <h3>Clarity</h3>
+                <p>Clear communication, decisive thinking, and transparent intentions</p>
+
+                <div class="audit-item" data-category="clarity">
+                    <div class="audit-question">I speak with confidence and avoid filler words (um, uh, like)</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="clarity">
+                    <div class="audit-question">I make decisions in a timely manner</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="clarity">
+                    <div class="audit-question">I explain the reasoning behind my decisions</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="clarity">
+                    <div class="audit-question">My written communication is clear and professional</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consistency Section -->
+            <div class="section">
+                <h3>Consistency</h3>
+                <p>Reliable behavior, predictable responses, and steady leadership style</p>
+
+                <div class="audit-item" data-category="consistency">
+                    <div class="audit-question">I follow through on my commitments</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="consistency">
+                    <div class="audit-question">I apply policies and procedures fairly to everyone</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="consistency">
+                    <div class="audit-question">My mood and energy level are predictable to my team</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="consistency">
+                    <div class="audit-question">I respond to emails and messages within 24-48 hours</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="consistency">
+                    <div class="audit-question">I arrive prepared for meetings and appointments</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Composure Section -->
+            <div class="section">
+                <h3>Composure</h3>
+                <p>Emotional regulation, calm under pressure, and thoughtful responses</p>
+
+                <div class="audit-item" data-category="composure">
+                    <div class="audit-question">I remain calm during stressful situations</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="composure">
+                    <div class="audit-question">I think before speaking when receiving criticism</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="composure">
+                    <div class="audit-question">I maintain professional demeanor even when frustrated</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="composure">
+                    <div class="audit-question">I listen actively without interrupting others</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="composure">
+                    <div class="audit-question">I admit mistakes and take responsibility gracefully</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Meeting Excellence -->
+            <div class="section">
+                <h3>Virtual Meeting Excellence</h3>
+                <p>Professional standards for digital interactions</p>
+
+                <div class="audit-item" data-category="virtual">
+                    <div class="audit-question">I test technology before virtual meetings</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="virtual">
+                    <div class="audit-question">I use professional backgrounds and appropriate lighting</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="virtual">
+                    <div class="audit-question">I mute myself when not speaking</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateResults()">Calculate My Results</button>
+
+            <div class="results" id="results">
+                <h3>Your Professional Presence Results</h3>
+                <div id="resultContent"></div>
+                
+                <div class="action-plan">
+                    <h4>Your Development Action Plan</h4>
+                    <div id="actionPlan"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click functionality to rating options
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.rating-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const auditItem = this.closest('.audit-item');
+                    const ratingScale = this.closest('.rating-scale');
+                    
+                    // Clear other selections in this item
+                    ratingScale.querySelectorAll('.rating-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Select this option
+                    this.classList.add('selected');
+                    
+                    // Store the value
+                    auditItem.setAttribute('data-rating', this.getAttribute('data-value'));
+                });
+            });
+        });
+
+        function calculateResults() {
+            const categories = {
+                clarity: { total: 0, count: 0, items: [] },
+                consistency: { total: 0, count: 0, items: [] },
+                composure: { total: 0, count: 0, items: [] },
+                virtual: { total: 0, count: 0, items: [] }
+            };
+
+            let totalQuestions = 0;
+            let answeredQuestions = 0;
+
+            // Collect ratings for each category
+            document.querySelectorAll('.audit-item').forEach(item => {
+                const category = item.getAttribute('data-category');
+                const rating = item.getAttribute('data-rating');
+                const question = item.querySelector('.audit-question').textContent;
+                
+                totalQuestions++;
+                
+                if (rating) {
+                    answeredQuestions++;
+                    const value = parseInt(rating);
+                    categories[category].total += value;
+                    categories[category].count++;
+                    categories[category].items.push({ question, rating: value });
+                }
+            });
+
+            if (answeredQuestions < totalQuestions) {
+                alert(`Please rate all ${totalQuestions} items before calculating results.`);
+                return;
+            }
+
+            displayResults(categories);
+        }
+
+        function displayResults(categories) {
+            const resultsDiv = document.getElementById('results');
+            const contentDiv = document.getElementById('resultContent');
+            const actionPlanDiv = document.getElementById('actionPlan');
+
+            let resultHTML = '';
+            let actionHTML = '';
+            let strengths = [];
+            let improvements = [];
+
+            // Calculate averages and create result display
+            Object.entries(categories).forEach(([categoryName, data]) => {
+                const average = data.count > 0 ? (data.total / data.count).toFixed(1) : 0;
+                const percentage = (average / 5) * 100;
+                
+                const categoryDisplayName = {
+                    clarity: 'Clarity',
+                    consistency: 'Consistency', 
+                    composure: 'Composure',
+                    virtual: 'Virtual Meeting Excellence'
+                }[categoryName];
+
+                resultHTML += `
+                    <div class="score-summary">
+                        <h4>${categoryDisplayName}: ${average}/5.0</h4>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${percentage}%"></div>
+                        </div>
+                        <p>${getScoreInterpretation(average)}</p>
+                    </div>
+                `;
+
+                // Identify strengths and improvement areas
+                if (average >= 4.0) {
+                    strengths.push(categoryDisplayName);
+                } else if (average < 3.0) {
+                    improvements.push(categoryDisplayName);
+                }
+
+                // Find specific items for improvement
+                data.items.forEach(item => {
+                    if (item.rating <= 2) {
+                        improvements.push(`${categoryDisplayName}: ${item.question}`);
+                    }
+                });
+            });
+
+            // Create action plan
+            if (strengths.length > 0) {
+                actionHTML += `<p><span class="strength">Your Strengths:</span> You excel in ${strengths.join(', ')}. Continue to leverage these areas and consider mentoring others.</p>`;
+            }
+
+            if (improvements.length > 0) {
+                actionHTML += `<p><span class="improvement">Priority Development Areas:</span></p><ul>`;
+                improvements.slice(0, 3).forEach(area => {
+                    actionHTML += `<li>${area}</li>`;
+                });
+                actionHTML += `</ul>`;
+                actionHTML += `<p><strong>Recommendation:</strong> Focus on 1-2 specific areas for the next 30 days. Practice daily and seek feedback from trusted colleagues.</p>`;
+            }
+
+            // Overall score and interpretation
+            const overallAverage = Object.values(categories).reduce((sum, cat) => sum + (cat.total / cat.count), 0) / Object.keys(categories).length;
+            
+            resultHTML = `
+                <div class="score-summary">
+                    <h4>Overall Professional Presence Score: ${overallAverage.toFixed(1)}/5.0</h4>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: ${(overallAverage / 5) * 100}%"></div>
+                    </div>
+                    <p>${getOverallInterpretation(overallAverage)}</p>
+                </div>
+            ` + resultHTML;
+
+            contentDiv.innerHTML = resultHTML;
+            actionPlanDiv.innerHTML = actionHTML;
+            resultsDiv.style.display = 'block';
+            
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function getScoreInterpretation(score) {
+            if (score >= 4.5) return "Excellent - You consistently demonstrate strong professional presence in this area.";
+            if (score >= 4.0) return "Very Good - You regularly show professional presence with minor areas for refinement.";
+            if (score >= 3.0) return "Good - You demonstrate competence with room for consistent improvement.";
+            if (score >= 2.0) return "Developing - This is a growth area that needs focused attention.";
+            return "Needs Attention - This area requires immediate development focus.";
+        }
+
+        function getOverallInterpretation(score) {
+            if (score >= 4.5) return "You demonstrate exceptional professional presence. Continue to model excellence and mentor others.";
+            if (score >= 4.0) return "You show strong professional presence. Focus on consistency and refinement.";
+            if (score >= 3.5) return "You have solid professional presence with clear opportunities for growth.";
+            if (score >= 3.0) return "You're developing good professional presence. Consistent practice will yield significant improvement.";
+            if (score >= 2.5) return "Your professional presence needs development. Focus on 1-2 key areas for the next 30 days.";
+            return "Professional presence development is a priority. Consider seeking mentoring or coaching support.";
+        }
+    </script>
+</body>
+</html> class="audit-question">I communicate my expectations clearly and specifically</div>
+                    <div class="rating-scale">
+                        <div class="rating-option" data-value="1">1</div>
+                        <div class="rating-option" data-value="2">2</div>
+                        <div class="rating-option" data-value="3">3</div>
+                        <div class="rating-option" data-value="4">4</div>
+                        <div class="rating-option" data-value="5">5</div>
+                    </div>
+                    <div class="notes-area">
+                        <textarea placeholder="Notes: Examples or areas for improvement..."></textarea>
+                    </div>
+                </div>
+
+                <div class="audit-item" data-category="clarity">
+                    <div

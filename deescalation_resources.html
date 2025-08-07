@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De-escalation Resources Guide - Veritas Visionaries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #1a5f3f;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .section h3 {
+            color: #1a5f3f;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .phrase-category {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .phrase-category:hover {
+            border-color: #1a5f3f;
+        }
+
+        .phrase-category h4 {
+            color: #2d7d54;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .phrase-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .phrase-list li {
+            background: #f0f8f4;
+            border: 1px solid #2d7d54;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin: 8px 0;
+            font-style: italic;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .phrase-list li:hover {
+            background: #e8f5e8;
+            transform: translateX(5px);
+        }
+
+        .phrase-list li::before {
+            content: '"';
+            color: #1a5f3f;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+
+        .phrase-list li::after {
+            content: '"';
+            color: #1a5f3f;
+            font-size: 1.5rem;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+        }
+
+        .situation-guide {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .situation-guide h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #721c24;
+        }
+
+        .warning-box h4 {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #155724;
+        }
+
+        .success-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+            margin: 20px 0 0 0;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: white;
+            border-bottom-color: #1a5f3f;
+            color: #1a5f3f;
+            font-weight: 600;
+        }
+
+        .tab:hover {
+            background: #e9ecef;
+        }
+
+        .tab-content {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 25px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .scenario-card {
+            background: #f0f8f4;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .scenario-card h5 {
+            color: #1a5f3f;
+            margin-bottom: 10px;
+        }
+
+        .body-language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .body-language-card {
+            background: white;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .body-language-card h5 {
+            color: #1a5f3f;
+            margin-bottom: 8px;
+        }
+
+        .quick-reference {
+            background: #e8f5e8;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .quick-reference h3 {
+            color: #1a5f3f;
+            margin-bottom: 15px;
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .reference-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .print-section {
+            background: #f8f9fa;
+            border: 1px dashed #6c757d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .body-language-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .print-section,
+            .btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">V</div>
+            <div class="brand-text">Veritas Visionaries</div>
+            <h1>De-escalation Resources Guide</h1>
+            <div class="subtitle">Your Complete Toolkit for Managing Tense Situations</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h3>About De-escalation</h3>
+                <p>De-escalation is the art of reducing tension and calming emotional situations before they spiral out of control. This comprehensive guide provides you with proven phrases, techniques, and strategies specifically designed for educational leadership contexts.</p>
+                <p><strong>Remember:</strong> The goal isn't to win the conversation—it's to preserve relationships while addressing the issue constructively.</p>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('phrases')">Phrase Bank</div>
+                <div class="tab" onclick="showTab('scenarios')">Scenarios</div>
+                <div class="tab" onclick="showTab('body-language')">Body Language</div>
+                <div class="tab" onclick="showTab('timing')">Timing & Context</div>
+            </div>
+
+            <!-- Phrase Bank Tab -->
+            <div class="tab-content active" id="phrases">
+                <h3>De-escalation Phrase Bank</h3>
+                
+                <div class="phrase-category">
+                    <h4>🤝 Acknowledge & Validate</h4>
+                    <p><em>Use these to show you're listening and that their feelings matter:</em></p>
+                    <ul class="phrase-list">
+                        <li>I can see this is really important to you.</li>
+                        <li>I hear what you're saying.</li>
+                        <li>That sounds frustrating.</li>
+                        <li>I can understand why you'd feel that way.</li>
+                        <li>Your concerns are valid.</li>
+                        <li>I appreciate you bringing this to my attention.</li>
+                        <li>Thank you for sharing your perspective.</li>
+                    </ul>
+                </div>
+
+                <div class="phrase-category">
+                    <h4>⏸️ Pause & Reset</h4>
+                    <p><em>When emotions are running too high for productive conversation:</em></p>
+                    <ul class="phrase-list">
+                        <li>Let's take a moment to reset.</li>
+                        <li>I think we both need a breather.</li>
+                        <li>Can we pause and come back to this in a few minutes?</li>
+                        <li>I want to give this the attention it deserves—let's step back.</li>
+                        <li>This is important—let's make sure we discuss it when we're both calm.</li>
+                        <li>I'd like to continue this conversation when we can both focus fully.</li>
+                    </ul>
+                </div>
+
+                <div class="phrase-category">
+                    <h4>🤔 Seek Understanding</h4>
+                    <p><em>To gather information and show genuine interest:</em></p>
+                    <ul class="phrase-list">
+                        <li>Help me understand your perspective.</li>
+                        <li>Can you tell me more about that?</li>
+                        <li>What would you like to see happen?</li>
+                        <li>How do you think we should handle this?</li>
+                        <li>What's your biggest concern here?</li>
+                        <li>Walk me through what happened from your viewpoint.</li>
+                        <li>What would success look like for you?</li>
+                    </ul>
+                </div>
+
+                <div class="phrase-category">
+                    <h4>🎯 Redirect to Solutions</h4>
+                    <p><em>To move from problems to problem-solving:</em></p>
+                    <ul class="phrase-list">
+                        <li>What solution do you see working?</li>
+                        <li>How can we move forward together?</li>
+                        <li>What would need to change for this to work better?</li>
+                        <li>Let's focus on what we can control.</li>
+                        <li>What's one thing we could try differently?</li>
+                        <li>We both want what's best for our students—how do we get there?</li>
+                        <li>What would be most helpful right now?</li>
+                    </ul>
+                </div>
+
+                <div class="phrase-category">
+                    <h4>🤝 Find Common Ground</h4>
+                    <p><em>To emphasize shared goals and values:</em></p>
+                    <ul class="phrase-list">
+                        <li>We both care about student success.</li>
+                        <li>I think we want the same thing here.</li>
+                        <li>We're on the same team.</li>
+                        <li>Our goal is the same—let's figure out how to get there.</li>
+                        <li>We both want what's best for our school community.</li>
+                        <li>I know we both value fairness and respect.</li>
+                        <li>We share the same commitment to excellence.</li>
+                    </ul>
+                </div>
+
+                <div class="phrase-category">
+                    <h4>🛡️ Set Boundaries (When Necessary)</h4>
+                    <p><em>To maintain respect while staying firm:</em></p>
+                    <ul class="phrase-list">
+                        <li>I want to help, but I need us to keep this respectful.</li>
+                        <li>Let's focus on the issue, not personal attacks.</li>
+                        <li>I'm committed to working through this professionally.</li>
+                        <li>I need us to lower our voices so we can understand each other.</li>
+                        <li>I want to find a solution, but we need to work together respectfully.</li>
+                        <li>Let's agree to disagree on that point and focus on what we can resolve.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scenarios Tab -->
+            <div class="tab-content" id="scenarios">
+                <h3>Common De-escalation Scenarios</h3>
+                
+                <div class="scenario-card">
+                    <h5>📧 Angry Parent Email</h5>
+                    <p><strong>Situation:</strong> Parent sends hostile email about their child's grade</p>
+                    <p><strong>De-escalation Response:</strong></p>
+                    <p><em>"Thank you for reaching out about [child's name]. I can see you're concerned about [his/her] grade, and I appreciate you advocating for your child. I'd like to discuss this with you directly so I can better understand your perspective and share more details about the situation. Could we schedule a brief phone call or meeting this week?"</em></p>
+                </div>
+
+                <div class="scenario-card">
+                    <h5>😤 Staff Member Outburst</h5>
+                    <p><strong>Situation:</strong> Teacher becomes emotional during team meeting</p>
+                    <p><strong>De-escalation Response:</strong></p>
+                    <p><em>"I can see this is really affecting you. Let's take a five-minute break, and then I'd like to hear more about your concerns. Your perspective is important to me."</em></p>
+                </div>
+
+                <div class="scenario-card">
+                    <h5>🤝 Colleague Disagreement</h5>
+                    <p><strong>Situation:</strong> Two staff members arguing in hallway</p>
+                    <p><strong>De-escalation Response:</strong></p>
+                    <p><em>"I can see you both care deeply about this issue. Let's move this conversation to my office where we can talk privately and work through this together."</em></p>
+                </div>
+
+                <div class="scenario-card">
+                    <h5>📞 Demanding Administrator Call</h5>
+                    <p><strong>Situation:</strong> District official making unreasonable demands</p>
+                    <p><strong>De-escalation Response:</strong></p>
+                    <p><em>"I understand this is a priority. Help me understand the timeline and constraints so I can see how we might make this work while maintaining quality."</em></p>
+                </div>
+
+                <div class="scenario-card">
+                    <h5>🎓 Student Discipline Meeting</h5>
+                    <p><strong>Situation:</strong> Parent defensive about student behavior</p>
+                    <p><strong>De-escalation Response:</strong></p>
+                    <p><em>"I know you love [child's name] and want what's best for them. So do we. Let's work together to understand what happened and create a plan that helps [him/her] succeed."</em></p>
+                </div>
+            </div>
+
+            <!-- Body Language Tab -->
+            <div class="tab-content" id="body-language">
+                <h3>Non-Verbal De-escalation</h3>
+                <p>Your body language often speaks louder than your words. Use these techniques to calm situations:</p>
+                
+                <div class="body-language-grid">
+                    <div class="body-language-card">
+                        <h5>👁️ Eye Contact</h5>
+                        <p>Maintain soft, attentive eye contact. Avoid staring or looking away completely.</p>
+                    </div>
+                    
+                    <div class="body-language-card">
+                        <h5>🤲 Open Posture</h5>
+                        <p>Keep arms uncrossed, hands visible, and body positioned at a slight angle.</p>
+                    </div>
+                    
+                    <div class="body-language-card">
+                        <h5>📏 Appropriate Distance</h5>
+                        <p>Maintain 3-4 feet of space. Move closer only if invited.</p>
+                    </div>
+                    
+                    <div class="body-language-card">
+                        <h5>😌 Calm Expression</h5>
+                        <p>Keep facial expression neutral and concerned, not defensive or dismissive.</p>
+                    </div>
+                    
+                    <div class="body-language-card">
+                        <h5>🗣️ Voice Tone</h5>
+                        <p>Speak slowly, clearly, and at a lower volume than the other person.</p>
+                    </div>
+                    
+                    <div class="body-language-card">
+                        <h5>👂 Active Listening</h5>
+                        <p>Nod occasionally, lean slightly forward, avoid interrupting.</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ Avoid These Behaviors:</h4>
+                    <ul>
+                        <li>Crossing arms or putting hands on hips</li>
+                        <li>Rolling eyes or looking at phone/computer</li>
+                        <li>Raising your voice or speaking faster</li>
+                        <li>Moving into their personal space</li>
+                        <li>Pointing fingers or making dismissive gestures</li>
+                        <li>Turning your back or walking away mid-conversation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Timing & Context Tab -->
+            <div class="tab-content" id="timing">
+                <h3>When and How to De-escalate</h3>
+                
+                <div class="success-box">
+                    <h4>✅ Best Times to De-escalate:</h4>
+                    <ul>
+                        <li><strong>Early signs of tension</strong> - Address before full escalation</li>
+                        <li><strong>When emotions peak</strong> - Acknowledge and pause</li>
+                        <li><strong>During transitions</strong> - "Let's step into my office"</li>
+                        <li><strong>When you're calm</strong> - Don't attempt when you're reactive</li>
+                        <li><strong>Private settings</strong> - Away from audiences when possible</li>
+                    </ul>
+                </div>
+
+                <div class="situation-guide">
+                    <h4>📍 Context Considerations:</h4>
+                    <p><strong>Public Spaces:</strong> Focus on moving to private area: <em>"Let's continue this conversation in my office where we can really focus."</em></p>
+                    
+                    <p><strong>Time Pressure:</strong> Acknowledge constraint: <em>"I know we're both pressed for time. Let's schedule 15 minutes this afternoon to give this proper attention."</em></p>
+                    
+                    <p><strong>Multiple People:</strong> Address group dynamics: <em>"I want to hear from everyone. Let's go around and each person share their main concern."</em></p>
+                    
+                    <p><strong>Repeat Offenders:</strong> Set clear expectations: <em>"We've discussed this before. I need to see specific changes moving forward."</em></p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>🚨 When NOT to De-escalate:</h4>
+                    <ul>
+                        <li>When there's threat of physical violence (call security)</li>
+                        <li>When someone is under the influence</li>
+                        <li>When you're too emotional to be effective</li>
+                        <li>When the other person has completely shut down</li>
+                        <li>When legal or HR issues require documentation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="quick-reference">
+                <h3>🚀 Quick Reference Card</h3>
+                <p><em>Print this section and keep it handy!</em></p>
+                
+                <div class="reference-grid">
+                    <div class="reference-item">
+                        <h5>Step 1: PAUSE</h5>
+                        <p>Take a breath. Lower your voice. Create space if needed.</p>
+                    </div>
+                    
+                    <div class="reference-item">
+                        <h5>Step 2: ACKNOWLEDGE</h5>
+                        <p>"I can see this is important to you" or "That sounds frustrating."</p>
+                    </div>
+                    
+                    <div class="reference-item">
+                        <h5>Step 3: LISTEN</h5>
+                        <p>"Help me understand" or "Tell me more about that."</p>
+                    </div>
+                    
+                    <div class="reference-item">
+                        <h5>Step 4: REDIRECT</h5>
+                        <p>"What would success look like?" or "How can we move forward?"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="print-section">
+                <h4>📄 Take This With You</h4>
+                <p>Print this guide for easy reference during challenging conversations.</p>
+                <button class="btn" onclick="window.print()">Print Guide</button>
+                <button class="btn" onclick="generatePersonalizedCard()">Create Personal Reference Card</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function generatePersonalizedCard() {
+            const personalCard = `
+PERSONAL DE-ESCALATION REFERENCE CARD
+=====================================
+
+MY TOP 5 GO-TO PHRASES:
+1. "I can see this is really important to you."
+2. "Help me understand your perspective."
+3. "What would success look like for you?"
+4. "We both want what's best for our students."
+5. "Let's take a moment to reset."
+
+REMEMBER:
+□ Pause and breathe first
+□ Lower your voice
+□ Maintain open body language
+□ Listen more than you speak
+□ Focus on solutions, not blame
+
+EMERGENCY PHRASES:
+• "Let's continue this privately"
+• "I want to give this proper attention"
+• "Your concerns are valid"
+
+Generated by Veritas Visionaries Leadership Development
+            `;
+
+            // Create downloadable text file
+            const blob = new Blob([personalCard], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'My_Personal_Deescalation_Card.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('Your personal reference card has been downloaded! Print it and keep it handy.');
+        }
+
+        // Add click functionality to phrases for easy copying
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.phrase-list li').forEach(phrase => {
+                phrase.addEventListener('click', function() {
+                    const text = this.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        this.style.background = '#d4edda';
+                        setTimeout(() => {
+                            this.style.background = '#f0f8f4';
+                        }, 1000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
