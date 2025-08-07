@@ -90,10 +90,12 @@
             padding: 30px 20px;
         }
 
+        /* Always display all lessons by default instead of hiding non-active ones. */
         .lesson {
-            display: none;
+            display: block;
         }
 
+        /* The active class can still be used for highlighting if desired. */
         .lesson.active {
             display: block;
         }
