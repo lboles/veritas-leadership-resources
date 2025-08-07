@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Phillips Leadership Module</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a5f3f, #2d7d54);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a5f3f;
+        }
+
+        /* Style for the main heading */
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .progress {
+            background: #e9ecef;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #1a5f3f;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 8px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .lesson {
+            display: none;
+        }
+
+        .lesson.active {
+            display: block;
+        }
+
+        .lesson-header {
+            background: #1a5f3f;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .lesson-number {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .lesson-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .lesson-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1a5f3f;
+        }
+
+        .section h3 {
+            color: #1a5f3f;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section h4 {
+            color: #2d7d54;
+            font-size: 1.2rem;
+            margin: 15px 0 10px 0;
+        }
+
+        .section p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #495057;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            font-size: 1rem;
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #495057;
+        }
+
+        .section li::before {
+            content: '•';
+            color: #1a5f3f;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .highlight-box {
+            background: #1a5f3f;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .insight-box {
+            background: #e8f5e8;
+            border: 2px solid #1a5f3f;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #1a5f3f;
+        }
+
+        .framework-box {
+            background: white;
+            border: 2px solid #1a5f3f;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: #1a5f3f;
+            border-bottom: 2px solid #1a5f3f;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .action-items {
+            background: #f0f8f4;
+            border: 2px solid #1a5f3f;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .action-items h4 {
+            color: #1a5f3f;
+            margin-bottom: 12px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            color: #856404;
+        }
+
+        .quiz-container {
+            background: white;
+            border: 2px solid #1a5f3f;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a5f3f;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            margin: 8px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .quiz-options li:hover {
+            background: #e9ecef;
+        }
+
+        .quiz-options li.selected {
+            background: #1a5f3f;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .quiz-feedback.correct {
+            background: #e8f5e8;
+            color: #1a5f3f;
+            border: 1px solid #2d7d54;
+        }
+
+        .quiz-feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .resources {
+            background: #f0f8f4;
+            border: 2px dashed #1a5f3f;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .resources h4 {
+            color: #1a5f3f;
+            margin-bottom: 12px;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: #1a5f3f;
+            color: white;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: #2d7d54;
+            text-decoration: none;
+        }
+
+        .navigation {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .nav-btn {
+            background: #1a5f3f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 8px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #2d7d54;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .completion-badge {
+            background: #1a5f3f;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 25px 0;
+        }
+
+        .sbi-example {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .sbi-label {
+            font-weight: bold;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .lesson-title {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .nav-btn {
+                padding: 10px 18px;
+                margin: 4px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">V</div>
+            <div style="margin-bottom: 10px; font-weight: 600;">Veritas Visionaries</div>
+<h1>Dr. Phillips&nbsp;Leadership&nbsp;Module</h1>
+            <div class="subtitle">Conflict Resolution & Management Training</div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Lesson 1 of 6</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Lesson 1 -->
+            <div class="lesson active" data-lesson="1">
+                <div class="lesson-header">
+                    <div class="lesson-number">Lesson 1</div>
+                    <div class="lesson-title">The Anatomy of Conflict</div>
+                    <div class="lesson-subtitle">Understanding workplace tension</div>
+                </div>
+
+                <div class="section">
+                    <h3>Key Insight</h3>
+                    <div class="highlight-box">
+                        "Conflict is inevitable — how we handle it defines our leadership."
+                    </div>
+                    <p>Every leader will face conflict. The difference between effective and ineffective leaders is not whether conflict occurs, but how they respond when it does.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Common Conflict Triggers</h3>
+                    <ul>
+                        <li><strong>Unclear expectations:</strong> When roles or goals are ambiguous</li>
+                        <li><strong>Limited resources:</strong> Competition for budget, time, or personnel</li>
+                        <li><strong>Communication gaps:</strong> Misunderstandings and poor information sharing</li>
+                        <li><strong>Power struggles:</strong> Disputes over authority and decision-making</li>
+                        <li><strong>Value clashes:</strong> Fundamental differences in beliefs and priorities</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Types of Conflict</h3>
+                    <div class="framework-box">
+                        <h4>Task Conflict</h4>
+                        <p>Disagreements about processes and procedures. These can be productive when managed well.</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>Relationship Conflict</h4>
+                        <p>Emotional tension between individuals. These require careful attention to prevent escalation.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">Which type of conflict involves disagreements about work methods?</div>
+                    <ul class="quiz-options">
+                        <li data-answer="correct">Task Conflict</li>
+                        <li data-answer="incorrect">Relationship Conflict</li>
+                        <li data-answer="incorrect">Value Conflict</li>
+                    </ul>
+                    <div class="quiz-feedback correct">
+                        Correct! Task conflict involves disagreements about processes and procedures.
+                    </div>
+                    <div class="quiz-feedback incorrect">
+                        Not quite. Task conflict specifically involves disagreements about work methods and procedures.
+                    </div>
+                </div>
+
+                <div class="action-items">
+                    <h4>Your Action Items:</h4>
+                    <ul>
+                        <li>Complete the Conflict Style Assessment</li>
+                        <li>Reflect on your personal conflict triggers</li>
+                        <li>Identify current conflicts in your workplace</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson" data-lesson="2">
+                <div class="lesson-header">
+                    <div class="lesson-number">Lesson 2</div>
+                    <div class="lesson-title">Leadership Etiquette & Presence</div>
+                    <div class="lesson-subtitle">Building professional credibility</div>
+                </div>
+
+                <div class="section">
+                    <h3>Core Principle</h3>
+                    <div class="highlight-box">
+                        "How you show up speaks louder than what you say."
+                    </div>
+                    <p>Your presence and behavior set the tone for every interaction and establish your credibility as a leader.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Three Elements of Executive Presence</h3>
+                    <div class="framework-box">
+                        <h4>1. Clarity</h4>
+                        <p>Clear communication, decisive thinking, and transparent intentions</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>2. Consistency</h4>
+                        <p>Reliable behavior, predictable responses, and steady leadership style</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>3. Composure</h4>
+                        <p>Emotional regulation, calm under pressure, and thoughtful responses</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Professional Etiquette Examples</h3>
+                    <ul>
+                        <li><strong>Preparedness:</strong> Always come to meetings ready with materials</li>
+                        <li><strong>Verbal tone:</strong> Maintain professional, respectful language</li>
+                        <li><strong>Email professionalism:</strong> Clear subject lines and timely responses</li>
+                        <li><strong>Virtual meetings:</strong> Professional background and active participation</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">Which element involves maintaining steady emotional responses?</div>
+                    <ul class="quiz-options">
+                        <li data-answer="incorrect">Clarity</li>
+                        <li data-answer="correct">Consistency</li>
+                        <li data-answer="incorrect">Composure</li>
+                    </ul>
+                    <div class="quiz-feedback correct">
+                        Correct! Consistency involves reliable behavior and steady responses.
+                    </div>
+                    <div class="quiz-feedback incorrect">
+                        Not quite. Consistency specifically refers to reliable behavior and steady responses.
+                    </div>
+                </div>
+
+                <div class="action-items">
+                    <h4>Your Action Items:</h4>
+                    <ul>
+                        <li>Complete the Professional Presence Self-Audit</li>
+                        <li>Set 3 specific professional development goals</li>
+                        <li>Ask a trusted colleague for feedback</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson" data-lesson="3">
+                <div class="lesson-header">
+                    <div class="lesson-number">Lesson 3</div>
+                    <div class="lesson-title">The SBI-C Model</div>
+                    <div class="lesson-subtitle">Structured communication for difficult conversations</div>
+                </div>
+
+                <div class="section">
+                    <h3>The SBI-C Framework</h3>
+                    <div class="framework-box">
+                        <h4>S - Situation</h4>
+                        <p>Describe the specific context when the issue occurred</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>B - Behavior</h4>
+                        <p>Explain the observable actions or words (facts, not interpretations)</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>I - Impact</h4>
+                        <p>Share the effect the behavior had on you, the team, or organization</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>C - Commitment</h4>
+                        <p>Agree on next steps and future expectations</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>SBI-C Example</h3>
+                    <div class="sbi-example">
+                        <p><span class="sbi-label">Situation:</span> "When you arrived late to yesterday's meeting..."</p>
+                        <p><span class="sbi-label">Behavior:</span> "I noticed the team had to stop and recap..."</p>
+                        <p><span class="sbi-label">Impact:</span> "Which delayed our decision-making..."</p>
+                        <p><span class="sbi-label">Commitment:</span> "Can we agree on a plan for future meetings?"</p>
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">Which component should focus on observable facts?</div>
+                    <ul class="quiz-options">
+                        <li data-answer="incorrect">Situation</li>
+                        <li data-answer="correct">Behavior</li>
+                        <li data-answer="incorrect">Impact</li>
+                    </ul>
+                    <div class="quiz-feedback correct">
+                        Correct! The Behavior component should focus on observable facts and actions.
+                    </div>
+                    <div class="quiz-feedback incorrect">
+                        Not quite. The Behavior section specifically requires focusing on observable actions.
+                    </div>
+                </div>
+
+                <div class="action-items">
+                    <h4>Your Action Items:</h4>
+                    <ul>
+                        <li>Practice SBI-C with a low-stakes situation</li>
+                        <li>Prepare scripts for upcoming conversations</li>
+                        <li>Role-play with a trusted colleague</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4 -->
+            <div class="lesson" data-lesson="4">
+                <div class="lesson-header">
+                    <div class="lesson-number">Lesson 4</div>
+                    <div class="lesson-title">Conflict Resolution</div>
+                    <div class="lesson-subtitle">Systematic approaches to resolving disputes</div>
+                </div>
+
+                <div class="section">
+                    <h3>Interest-Based Problem Solving</h3>
+                    <div class="highlight-box">
+                        Focus on interests, not positions. Collaborate toward win-win solutions.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>4-Step Resolution Process</h3>
+                    <div class="framework-box">
+                        <h4>Step 1: Clarify the Problem</h4>
+                        <p>Ensure everyone understands the issue and agrees on what needs to be solved</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>Step 2: Identify Interests</h4>
+                        <p>Discover what each party really needs (not just what they're asking for)</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>Step 3: Brainstorm Options</h4>
+                        <p>Generate multiple potential solutions without judgment</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>Step 4: Agree on Solution</h4>
+                        <p>Select the best option and create a clear implementation plan</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>De-Escalation Phrases</h3>
+                    <ul>
+                        <li>"Let's take a moment to reset."</li>
+                        <li>"I hear what you're saying."</li>
+                        <li>"What solution do you see working?"</li>
+                        <li>"Help me understand your perspective."</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">What should you focus on instead of positions?</div>
+                    <ul class="quiz-options">
+                        <li data-answer="incorrect">Solutions</li>
+                        <li data-answer="correct">Interests</li>
+                        <li data-answer="incorrect">Compromises</li>
+                    </ul>
+                    <div class="quiz-feedback correct">
+                        Correct! Focus on understanding underlying interests rather than stated positions.
+                    </div>
+                    <div class="quiz-feedback incorrect">
+                        Not quite. Interest-based problem solving focuses on underlying interests.
+                    </div>
+                </div>
+
+                <div class="action-items">
+                    <h4>Your Action Items:</h4>
+                    <ul>
+                        <li>Practice the 4-step resolution process</li>
+                        <li>Identify current conflicts to address</li>
+                        <li>Memorize key de-escalation phrases</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 5 -->
+            <div class="lesson" data-lesson="5">
+                <div class="lesson-header">
+                    <div class="lesson-number">Lesson 5</div>
+                    <div class="lesson-title">High-Anxiety Environments</div>
+                    <div class="lesson-subtitle">Creating psychological safety</div>
+                </div>
+
+                <div class="section">
+                    <h3>Warning Signs</h3>
+                    <div class="warning-box">
+                        <strong>Watch for these indicators:</strong>
+                    </div>
+                    <ul>
+                        <li>Constant emergency meetings</li>
+                        <li>Emotional outbursts from staff</li>
+                        <li>Silence from key team members</li>
+                        <li>Increased sick days and turnover</li>
+                        <li>Gossip and rumors spreading</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Leadership's Role</h3>
+                    <ul>
+                        <li><strong>Model calm responses:</strong> Your emotional state influences others</li>
+                        <li><strong>Reinforce psychological safety:</strong> Make it safe to voice concerns</li>
+                        <li><strong>Set clear boundaries:</strong> Reduce ambiguity that creates anxiety</li>
+                        <li><strong>Communicate frequently:</strong> Information reduces fear and speculation</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Prevention Through Culture</h3>
+                    <div class="highlight-box">
+                        Prevention happens by building positive culture — not waiting for crisis.
+                    </div>
+                    <div class="insight-box">
+                        Proactive culture building includes regular check-ins, clear communication channels, professional development, and recognition programs.
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">What's most important for managing high-anxiety environments?</div>
+                    <ul class="quiz-options">
+                        <li data-answer="incorrect">Hold more meetings</li>
+                        <li data-answer="correct">Model calm responses</li>
+                        <li data-answer="incorrect">Increase oversight</li>
+                    </ul>
+                    <div class="quiz-feedback correct">
+                        Correct! Modeling calm responses is crucial because leaders set the emotional tone.
+                    </div>
+                    <div class="quiz-feedback incorrect">
+                        Not quite. Modeling calm responses is most important for setting the right tone.
+                    </div>
+                </div>
+
+                <div class="action-items">
+                    <h4>Your Action Items:</h4>
+                    <ul>
+                        <li>Assess your current organizational climate</li>
+                        <li>Develop a prevention strategy</li>
+                        <li>Create intervention plans for problem behaviors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 6 -->
+            <div class="lesson" data-lesson="6">
+                <div class="lesson-header">
+                    <div class="lesson-number">Lesson 6</div>
+                    <div class="lesson-title">Putting It All Together</div>
+                    <div class="lesson-subtitle">Integration and implementation</div>
+                </div>
+
+                <div class="section">
+                    <h3>The Complete Leadership Journey</h3>
+                    <div class="framework-box">
+                        <h4>From Conflict to Resolution:</h4>
+                        <ol style="list-style-type: decimal; padding-left: 20px;">
+                            <li><strong>Recognize:</strong> Identify triggers and types early</li>
+                            <li><strong>Respond:</strong> Demonstrate professional presence</li>
+                            <li><strong>Communicate:</strong> Use structured approaches like SBI-C</li>
+                            <li><strong>Resolve:</strong> Apply collaborative frameworks</li>
+                            <li><strong>Prevent:</strong> Build positive culture</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Implementation Timeline</h3>
+                    <div class="framework-box">
+                        <h4>First 30 Days:</h4>
+                        <p>Focus on self-awareness and immediate presence improvements</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>60 Days:</h4>
+                        <p>Practice structured conversations and resolution frameworks</p>
+                    </div>
+                    <div class="framework-box">
+                        <h4>90 Days:</h4>
+                        <p>Implement culture-building initiatives and measure progress</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Success Metrics</h3>
+                    <ul>
+                        <li>Reduced conflict escalations</li>
+                        <li>Improved staff feedback</li>
+                        <li>Faster conflict resolutions</li>
+                        <li>Better working relationships</li>
+                        <li>Increased personal confidence</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">What's the correct sequence of the leadership approach?</div>
+                    <ul class="quiz-options">
+                        <li data-answer="incorrect">Resolve → Recognize → Respond</li>
+                        <li data-answer="correct">Recognize → Respond → Communicate → Resolve → Prevent</li>
+                        <li data-answer="incorrect">Prevent → Recognize → Communicate</li>
+                    </ul>
+                    <div class="quiz-feedback correct">
+                        Excellent! This sequence represents the complete leadership journey.
+                    </div>
+                    <div class="quiz-feedback incorrect">
+                        Review the integration section for the correct sequence.
+                    </div>
+                </div>
+
+                <div class="action-items">
+                    <h4>Your Final Action Items:</h4>
+                    <ul>
+                        <li>Complete your Leadership Action Plan</li>
+                        <li>Schedule your first 30-day review</li>
+                        <li>Identify your accountability partner</li>
+                        <li>Prepare for live coaching</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Course Completion -->
+            <div class="lesson" data-lesson="7">
+                <div class="completion-badge">
+                    🎉 Course Complete! 🎉
+                </div>
+                
+                <div class="section">
+                    <h3>Congratulations!</h3>
+                    <div class="highlight-box">
+                        You have successfully completed Leadership Foundations: Conflict Resolution & Management Training
+                    </div>
+                    <p>You now have the tools, frameworks, and strategies to handle conflict with confidence and lead with presence.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Conflict is inevitable</strong> — How you handle it defines your leadership</li>
+                        <li><strong>Presence matters</strong> — How you show up speaks louder than what you say</li>
+                        <li><strong>Structure helps</strong> — Frameworks prevent emotional misfires</li>
+                        <li><strong>Prevention is key</strong> — Building culture prevents crisis</li>
+                        <li><strong>Practice makes progress</strong> — These skills improve with use</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Next Steps</h3>
+                    <div class="insight-box">
+                        <strong>Veritas Visionaries
